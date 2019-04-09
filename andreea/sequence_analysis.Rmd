@@ -1,0 +1,79 @@
+---
+title: "Ebola Genome - Data Analysis"
+output:
+  html_notebook: default
+  html_document:
+    df_print: paged
+  pdf_document: default
+---
+
+## Required libaries
+
+```{r}
+library(seqinr)
+library(stringr)
+library(ggplot2)
+```
+Read fasta file containing the aligned RNA sequences of the Ebola virus samples.
+```{r}
+data <- read.fasta("data/ebov_WestAfrica_2014-2015.fasta")
+```
+Store the fasta headers
+```{r}
+annotation <- getAnnot(data)
+```
+Create a data frame storing all sequence metadata
+```{r}
+
+ids1 = sapply(strsplit(as.character(annotation), "\\|"), "[[", 2)
+ids2 = sapply(strsplit(as.character(annotation), "\\|"), "[[", 3)
+countries = sapply(strsplit(as.character(annotation), "\\|"), "[[", 4)
+regions = sapply(strsplit(as.character(annotation), "\\|"), "[[", 5)
+dates = sapply(strsplit(as.character(annotation), "\\|"), "[[", 6)
+
+sequences_df <- data.frame(
+  id1 = ids1, 
+  id2 = ids2, 
+  country = countries,
+  region = regions, 
+  date = dates
+)
+
+print(head(sequences_df, 10))
+```
+
+Sort data frame chronologically according to the date of the sequences
+```{r}
+sequences_df = sequences_df[order(as.Date(sequences_df$date, format="%Y-%m-%d")),]
+print(head(sequences_df, 10))
+```
+## Plotting the data
+Some useful histograms:
+
+### Number of samples per sample date
+First 100 sample dates:
+```{r}
+ggplot(sequences_df[c(1:100), ], aes(x=sequences_df$date[c(1:100)])) + 
+  geom_bar() +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+```
+And all sample dates, for an overview (you can zoom in to see the actual dates - I know, the text is pretty small)
+```{r}
+ggplot(sequences_df, aes(x=sequences_df$date)) + 
+  geom_bar() +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1, size=2))
+```
+### Number of samples per country
+Note that for two samples the country is unkown.
+```{r}
+ggplot(sequences_df, aes(x=sequences_df$country)) + 
+  geom_bar()
+```
+### Number of samples per region
+```{r}
+ggplot(sequences_df, aes(x=sequences_df$region)) + geom_bar() +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1, size=8))
+```
+
+
+
