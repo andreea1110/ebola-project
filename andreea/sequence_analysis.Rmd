@@ -16,7 +16,7 @@ library(ggplot2)
 ```
 Read fasta file containing the aligned RNA sequences of the Ebola virus samples.
 ```{r}
-data <- read.fasta("data/ebov_WestAfrica_2014-2015.fasta")
+data <- read.fasta("../data/ebov_WestAfrica_2014-2015.fasta")
 ```
 Store the fasta headers
 ```{r}
