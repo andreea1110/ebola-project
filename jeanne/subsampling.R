@@ -79,4 +79,19 @@ difftime(max_date,min_date,units="weeks") #or days, but not years. If you want i
 
 incr_dates <-occurence_dates[order(occurence_dates[,1]),]
 
-#Ideally, sort sequences through time AND location
+#Ideally, sort sequences through time AND location AND country (or 2 out of 3 each time)
+
+#1 location > samples through date
+montserrado_sequences<-data[str_detect(names(data),"Montserrado")]
+montserrado_headers <- subset(headers,locations=="Montserrado")
+montserrado_headers$dates <- as.Date(montserrado_headers$dates)
+chron_montserrado <-montserrado_headers[order(montserrado_headers$dates),]
+
+montserrado_all_dates <- data.frame(calendar,rep(0,span+1))
+names(montserrado_all_dates) <- c("dates","occurences")
+for (i in 1:span+1) {
+  montserrado_all_dates$occurences[i] <- sum(montserrado_all_dates$dates[i] == chron_montserrado$dates)
+}
+
+barplot(montserrado_all_dates$occurences)
+
