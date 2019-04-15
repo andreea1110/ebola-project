@@ -82,3 +82,17 @@ Analyze different subsamples of the data as follows:
 Recover infection dyamics in those samples.
 Then, work together (still has to be determined how) on determining the
 location where the epidemic began.
+
+## Notes
+1. When we infer population size with the population size with the Bayesian Skyline Plot, we infer the effective number of infected individuals.
+
+Questions for Wednesday
+=======================
+1. Discuss about choice of priors:
+    1.1 become uninfectious rate
+    1.2. origin
+    1.3. reproductive number
+    1.4. sampling proportion
+2. Show them results from coalescent and b-d model analysis and discuss relevance etc. What would be the desired output of those analysis?
+3. Discus SCOTTI tutorial, discrete phylogeography & other tutorials for inferring the origin of the epidemic
+4. Difference between burn-in and preburnin?
