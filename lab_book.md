@@ -96,3 +96,17 @@ Questions for Wednesday
 2. Show them results from coalescent and b-d model analysis and discuss relevance etc. What would be the desired output of those analysis?
 3. Discus SCOTTI tutorial, discrete phylogeography & other tutorials for inferring the origin of the epidemic
 4. Difference between burn-in and preburnin?
+
+Answers:
+Origin: time when the first infected individual arrived in the reasonably well-mixed population
+certainly prior to our first sample, can be much older
+the density for the origin can then have two peaks: means that the two hypotheses for the two time points are supported. Leads to poorly mixing chain (since it has to explore the first peak, and then the second)
+to set the prior, look at the quantiles and think in ages
+take the last date and then substract the values of the quantiles
+
+
+x-axis: unit of the samples we entered
+samples 2014.3, 2014.5, 2014.6 are turned in "age before the last sample", hence 0.3, 0.1, 0, with time going backward
+BEAST uses ages, which is more correct than time
+BEAST ignores dates
+if median of origin = 7: means the epidemics started 7 before the last sample
