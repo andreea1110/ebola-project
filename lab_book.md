@@ -137,7 +137,35 @@ population size for coalescent skyline: 2014.0 is January 1st
 can be a really good tool if you're aware of this assumption
 subsample with care, divide the countries in different regions
 
+Tanja: if we subsample the sequences, we have to make the regions coarser
+we need a certain number of sequences per region to infer the tree
+otherwise, no information on migration between regions
+
+Tim: would this really be a problem?
+for the root location, not really
+but for migration, you would have to set a different prior for each entry of the migration matrix which has the size of the number of regions
+
+One idea: only take the first 200 sequences in time, hoping they do not come from 200 different locations (which shouldn't be the case)
+
+Here we don't have so many differences in sampling according to locations, but it could be that we have lots of samples from Sierra Leone even if it isn't the origin of the epidemics, so do the full analysis too to have more support.
+
+use the fixed tree they infered and run the phylogeographic analysis on it
+
+to infer the tree, 1600 sequences will take very very long
+
+
 4. burnin and pre-burnin: don't touch it!
 nonzero pre-burnin: throws away the beginning of the analysis
 much safer to set it to 0 and then do not consider the first part of the chain
 in Tracer, trend at the beginning, then no more obvious trend => you should get rid of that trend
+
+Run two analysis in parallel: both might seem to be mixing well but each of them reaches a different peak
+if ESS value of overall posterior is still low, just run the analysis for longer
+
+To compare between the regions, set the same priors (except for sampling proportion)
+but clock rate has to be the same for all of us
+
+To infer regional dynamics, the tree of the article is online, on github if we don't want to spend too much time infering it
+Take monophyletic clades
+
+we can also talk about limitations at the end of our talk
