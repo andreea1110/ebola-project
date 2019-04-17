@@ -98,15 +98,29 @@ Questions for Wednesday
 4. Difference between burn-in and preburnin?
 
 Answers:
+1.
 Origin: time when the first infected individual arrived in the reasonably well-mixed population
 certainly prior to our first sample, can be much older
 the density for the origin can then have two peaks: means that the two hypotheses for the two time points are supported. Leads to poorly mixing chain (since it has to explore the first peak, and then the second)
 to set the prior, look at the quantiles and think in ages
 take the last date and then substract the values of the quantiles
 
-
 x-axis: unit of the samples we entered
 samples 2014.3, 2014.5, 2014.6 are turned in "age before the last sample", hence 0.3, 0.1, 0, with time going backward
 BEAST uses ages, which is more correct than time
 BEAST ignores dates
 if median of origin = 7: means the epidemics started 7 before the last sample
+
+become uninfectious rate and reproductive number: we can set very restrictive/informative priors since very well-known data
+
+If the analysis isn't mixing in a particular region, turn to another region
+some posteriors are very difficult to explore
+
+sampling proportion: use those from the article
+no need to be too precise (2 or 5 % doesn't make a difference)
+
+clock model: 
+
+3. discrete phylogeography: assumes constant sampling rate
+can be a really good tool if you're aware of this assumption
+subsample with care, divide the countries in different regions
