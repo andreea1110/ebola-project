@@ -119,8 +119,25 @@ some posteriors are very difficult to explore
 sampling proportion: use those from the article
 no need to be too precise (2 or 5 % doesn't make a difference)
 
-clock model: 
+clock model: try both strict clock and relaxed model
+if you don't see a striking difference, stick to strict clock
+allowing for a little bit of variation can make a difference
+according to Tim, with our dataset, shouldn't make a difference, but still try both
+
+2. Reproductive numbers for the BDSKY (Andreea's analysis)
+sometimes below 1
+go to R, change the time axis of the timegrid
+times : younger sample - timegrid
+
+population size for coalescent skyline: 2014.0 is January 1st
+2014.5 is June
+2014.99 is December 31st
 
 3. discrete phylogeography: assumes constant sampling rate
 can be a really good tool if you're aware of this assumption
 subsample with care, divide the countries in different regions
+
+4. burnin and pre-burnin: don't touch it!
+nonzero pre-burnin: throws away the beginning of the analysis
+much safer to set it to 0 and then do not consider the first part of the chain
+in Tracer, trend at the beginning, then no more obvious trend => you should get rid of that trend
