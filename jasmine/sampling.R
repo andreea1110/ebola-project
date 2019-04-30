@@ -59,10 +59,10 @@ load("df_ebola.Rda")
 
 ### Check sample dates
 
-# data <- as.Date(df_ebola[df_ebola$location == "Conakry",]$date)
-# hist(data, "months")
-# data_extended <- as.Date(df_ebola[df_ebola$location %in% c("Conakry","Coyah","Dubreka"),]$date)
-# hist(data_extended, "months")
+data <- as.Date(df_ebola[df_ebola$location == "Conakry",]$date)
+hist(data, "months")
+data_extended <- as.Date(df_ebola[df_ebola$location %in% c("Conakry","Coyah","Dubreka"),]$date)
+hist(data_extended, "months")
 
 
 
