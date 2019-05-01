@@ -1,7 +1,7 @@
 library(bdskytools)
 
 #load file
-fname <- "/Users/Jasmine/Documents/ETH/S2 Bayesian Phylodynamics/Project/conakry2.log"
+fname <- "/Users/Jasmine/Documents/ETH/S2 Bayesian Phylodynamics/Project/conakry2_x4/conakry2.log"
 lf    <- readLogfile(fname, burnin=0.1)
 
 #extract HPDs

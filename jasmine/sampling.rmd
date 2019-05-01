@@ -1,0 +1,117 @@
+---
+title: "Sampling"
+author: "Jasmine Gamblin"
+date: "1 mai 2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(seqinr)
+library(stringr)
+library(ggplot2)
+
+setwd("/Users/Jasmine/Documents/ETH/S2 Bayesian Phylodynamics/Project/ebola-project/jasmine")
+```
+
+
+Read ebola file
+```{r}
+ebola <- read.fasta("ebov_WestAfrica_2014-2015.fasta")
+```
+
+
+Random sampling without replacement
+```{r}
+ebola_random <- ebola[sample.int(1610, 100)]
+write.fasta(ebola_random, names(ebola_random), "ebola_random_100.fasta")
+```
+
+
+Create Data Frame with location and date
+```{r}
+df_ebola <- data.frame(name = names(ebola), location = c("empty"), date = c("empty"), row.names = 1:1610, stringsAsFactors = FALSE)
+for (i in 1:1610) {
+  compt <- 0
+  j <- 1
+  while (compt < 4) {
+    if (substr(df_ebola[i,"name"],j,j) == "|") {
+      compt <- compt + 1
+    }
+    j <- j + 1
+  }
+  k <- j
+  while (compt < 5) {
+    if (substr(df_ebola[i,"name"],j,j) == "|") {
+      compt <- compt + 1
+    }
+    j <- j + 1
+  }
+  df_ebola[i, "location"] <- substr(df_ebola[i, "name"], k, j-2)
+  df_ebola[i, "date"] <- substr(df_ebola[i, "name"], j, j+9)
+}
+save(df_ebola, file = "df_ebola.Rda")
+```
+
+
+Load dataframe
+```{r}
+load("df_ebola.Rda")
+```
+
+
+Print locations
+```{r}
+table(df_ebola$location)
+```
+
+
+Create fasta with Conakry samples
+```{r}
+conakry_names <- df_ebola[df_ebola$location == "Conakry",]$name
+conakry <- ebola[conakry_names]
+write.fasta(conakry, names(conakry), "conakry.fasta")
+
+coyah_names <- df_ebola[df_ebola$location == "Coyah",]$name
+dubreka_names <- df_ebola[df_ebola$location == "Dubreka",]$name
+conakry_extended <- ebola[c(conakry_names, coyah_names, dubreka_names)]
+write.fasta(conakry_extended, names(conakry_extended), "conakry_extended.fasta")
+```
+
+
+Check sample dates for Conakry samples
+```{r}
+data <- as.Date(df_ebola[df_ebola$location == "Conakry",]$date)
+hist(data, "months")
+data_extended <- as.Date(df_ebola[df_ebola$location %in% c("Conakry","Coyah","Dubreka"),]$date)
+hist(data_extended, "months")
+```
+
+
+Subsample 200 oldest sequences
+```{r}
+df_ebola <- df_ebola[order(as.Date(df_ebola$date),decreasing=F), ]
+print(df_ebola)
+
+oldest_names <- df_ebola$name[1:200]
+oldest <- ebola[oldest_names]
+write.fasta(oldest, names(oldest), "oldest.fasta")
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
