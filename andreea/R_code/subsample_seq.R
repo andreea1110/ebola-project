@@ -4,10 +4,14 @@ library(stringr)
 library(ggplot2)
 library(tidyverse)
 
-setwd("/home/deea/Documents/ETH/master/courses/year2_2018-2019/semester4/Bayesian_Phylodynamics/Ebola_virus_project/R_code")
+# works for RStudio Version 1.1.463
+working_directory <- dirname(rstudioapi::getSourceEditorContext()$path)
+
+# otherwise, set the working directory manually and update write.fasta() functions accordingly
+#setwd("/home/deea/Documents/ETH/master/courses/year2_2018-2019/semester4/Bayesian_Phylodynamics/Ebola_virus_project/R_code")
 
 # read file
-data <- read.fasta("../data/ebov_WestAfrica_2014-2015.fasta")
+data <- read.fasta("../../data/ebov_WestAfrica_2014-2015.fasta")
 
 # Store fasta headers
 annotation <- getAnnot(data)
@@ -115,10 +119,10 @@ ggplot(data.frame(dates = western_dates), aes(x=dates)) +
   ggsave("western_sample_dates.pdf", path = getwd())
 
 # write data to file
-write.fasta(western_rural_seq, names(western_rural_seq), "western_rural_EBOV.fasta")
-write.fasta(western_urban_seq, names(western_urban_seq), "western_urban_EBOV.fasta")
-write.fasta(western_area_seq, names(western_area_seq), "western_area_EBOV.fasta")
-write.fasta(western_region, names(western_region), "western_regions_EBOV.fasta")
+write.fasta(western_rural_seq, names(western_rural_seq), paste(working_directory, "/../../data/western_rural_EBOV.fasta", sep=""))
+write.fasta(western_urban_seq, names(western_urban_seq), paste(working_directory,"/../../data/western_urban_EBOV.fasta", sep=""))
+write.fasta(western_area_seq, names(western_area_seq), paste(working_directory,"/../../data/western_area_EBOV.fasta", sep=""))
+write.fasta(western_region, names(western_region), paste(working_directory,"/../../data/western_regions_EBOV.fasta", sep=""))
 
 # remove sequences with unkown regions
 sequences_df <- sequences_df %>% filter(region != "?")
@@ -142,12 +146,10 @@ for (i in 1:no_seq) {
 # remove duplicates
 first_seq <- first_seq[!duplicated(first_seq)]
 
-write.fasta(first_seq, names(first_seq), "first_seq_EBOV_original.fasta")
-
 # remove the first two attributes to be able to select the locations in BEAUTI
 for (i in 1:length(first_seq)) {
   names(first_seq)[i] <- gsub("^\\w*\\|\\w*\\.*\\-*\\w*\\|","", names(first_seq)[i])
   attr(first_seq[[i]], "Annot") <- paste(">", gsub("^>\\w*\\|\\w*\\.*\\-*\\w*\\|","", names(first_seq)[i]), sep="")
-  attr(first_seq[[i]], "name") <- sub("^\\w*\\|\\w*\\.*\\-*\\w*\\|","", names(first_seq)[i])s
+  attr(first_seq[[i]], "name") <- sub("^\\w*\\|\\w*\\.*\\-*\\w*\\|","", names(first_seq)[i])
 }
-write.fasta(first_seq, names(first_seq), "first_seq_EBOV.fasta")
+write.fasta(first_seq, names(first_seq), paste(working_directory,"/../../data/first_seq_EBOV.fasta", sep=""))
