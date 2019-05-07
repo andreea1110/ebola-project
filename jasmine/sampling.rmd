@@ -13,6 +13,7 @@ knitr::opts_chunk$set(echo = TRUE)
 library(seqinr)
 library(stringr)
 library(ggplot2)
+library(purrr)
 
 setwd("/Users/Jasmine/Documents/ETH/S2 Bayesian Phylodynamics/Project/ebola-project/jasmine")
 ```
@@ -93,14 +94,29 @@ hist(data_extended, "months")
 
 Subsample 200 oldest sequences
 ```{r}
+#order according to sampling date
 df_ebola <- df_ebola[order(as.Date(df_ebola$date),decreasing=F), ]
+df_ebola <- df_ebola[str_length(df_ebola$location) > 1,]
 print(df_ebola)
 
+#modify names to be able to access location in BEAuti
 oldest_names <- df_ebola$name[1:200]
+oldest_names_short <- map(oldest_names, ~ strsplit(.x, split='|', fixed=T)[[1]])
+oldest_names_short <- map_chr(oldest_names_short, ~ str_glue(str_glue(.x[1], .x[2]), str_glue(.x[3], .x[4], .x[5], .x[6], .sep = "|")))
+
+#write fasta file
 oldest <- ebola[oldest_names]
-write.fasta(oldest, names(oldest), "oldest.fasta")
+write.fasta(oldest, oldest_names_short, "oldest.fasta")
 ```
 
+Create fasta file for a monophyletic clade
+```{r}
+clade_names <- read.delim("clade_names.txt", header = F, sep = "")
+print(clade_names)
+
+clade <- ebola[clade_names$V1]
+write.fasta(clade, names(clade), "clade.fasta")
+```
 
 
 
