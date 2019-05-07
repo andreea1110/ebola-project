@@ -136,7 +136,7 @@ sequences_df <- sequences_df[order(as.Date(sequences_df$date, format="%Y-%m-%d")
 # (which probably doesn't matter, you should check that later)
 #first_seq = data[which(str_detect(names(data), paste(head(sequences_df$id1, 200),collapse = '|')))]
 
-no_seq = 200
+no_seq = 50
 first_200_seq_id1 = head(sequences_df$id1, no_seq)
 first_seq = list()
 for (i in 1:no_seq) {
@@ -152,4 +152,4 @@ for (i in 1:length(first_seq)) {
   attr(first_seq[[i]], "Annot") <- paste(">", gsub("^>\\w*\\|\\w*\\.*\\-*\\w*\\|","", names(first_seq)[i]), sep="")
   attr(first_seq[[i]], "name") <- sub("^\\w*\\|\\w*\\.*\\-*\\w*\\|","", names(first_seq)[i])
 }
-write.fasta(first_seq, names(first_seq), paste(working_directory,"/../../data/first_seq_EBOV.fasta", sep=""))
+write.fasta(first_seq, names(first_seq), paste(working_directory,"/../../data/first_50_seq_EBOV.fasta", sep=""))
