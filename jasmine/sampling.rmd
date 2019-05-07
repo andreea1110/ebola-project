@@ -111,10 +111,8 @@ write.fasta(oldest, oldest_names_short, "oldest.fasta")
 
 Create fasta file for a monophyletic clade
 ```{r}
-clade_names <- read.delim("clade_names.txt", header = F, sep = "")
-print(clade_names)
-
-clade <- ebola[clade_names$V1]
+clade_names <- read.csv("clade_names.txt", header = F, sep = "", quote = "\'")$V1
+clade <- ebola[as.character(clade_names)]
 write.fasta(clade, names(clade), "clade.fasta")
 ```
 
