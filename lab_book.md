@@ -183,9 +183,12 @@ Tanja:
 ## Origin of the epidemics
 
 **Discrete phylogeography (Jasmine)**
-only plug in a formula
-perhaps run it longer (doesn't seem to be stuck, but try to run it 4 times longer)
+only plugs data in formulaes --> relatively short
+
+perhaps run it longer (doesn't seem to be stuck, but try to run it 4 times longer to get ESS values > 200)
+
 origin inferred is close to the one in the paper, but not exactly the same one.
+
 Site model: use the paper's
 
 discrete phylogeography: one coalescent for the whole tree --> only one pop size estimate
