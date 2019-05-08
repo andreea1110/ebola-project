@@ -224,9 +224,6 @@ If the model is more complex, it is more likely we end up at places where the li
 If we have 100 parameters and update all of them as the same time, after a million steps we have only updated all of them 10'000 times.
 Compare our posterior probabilities
 
-Launch the 4 analyses with 50 sequences on the longest queue of the cluster
-If we have 4 root locations, show a cake diagram of posteriors for each model (read the log file into R and then plot a diagram)
-
 ## Inferring the local dynamics
 We infer reproductive numbers when we have a lot of branching (--> lots of transmissions if there is a single location)
 higher Re if we have a lot of transmissions
@@ -244,3 +241,9 @@ background: already explain why 50 sequences
 
 Each of us presents the analysis with her model.
 Andreea would be responsible for the MASCOT part and if questions were to be asked on this model, it would likely be asked to her.
+
+## To do:
+change clock rate prior according to paper for all the 4 analyses
+
+Launch the 4 analyses with 50 sequences on the longest queue of the cluster
+If we have 4 root locations, show a cake diagram of posteriors for each model (read the log file into R and then plot a diagram)
