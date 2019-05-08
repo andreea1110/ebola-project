@@ -188,9 +188,10 @@ origin inferred is close to the one in the paper, but not exactly the same one.
 Site model: use the paper's
 
 discrete phylogeography: one coalescent for the whole tree --> only one pop size estimate
-epidemics transmission is modelled as a nucleotide substitution (flipping a coin) --> bias
+epidemics transmission is modelled as a nucleotide substitution (flipping a coin): leads to bias
 
 **MASCOT (Andreea)**
+models a structured population
 10 pop size estimates
 with 200 sequences (10 different locations): very slow
 with 50 sequences (4 different locations): still very slow, bad mixing
@@ -199,8 +200,20 @@ error message, too many iterations
 
 BEAST has trouble inferring the clock rate
 if we had time, we would run the analysis with the last 1400 sequences, then take posterior information for the 200
-EBOLA doesn't mutate so much --> take the mean and variance of the clock rate's posterior of the paper, and set a log normal posterior with these mean and variance
+EBOLA doesn't mutate so much --> take the mean and variance of the clock rate's posterior of the paper, and set a narrow log normal posterior with these mean and variance
 will help the mixing
 if the clock rate is very constrained, so is the tree height.
 
 Use the same priors for all our origin analyses (especially site model and clock rate).
+
+Try to use only the first 50 sequences with the 4 locations
+SCOTTI and and birth death model should run approximately for the same amount of time, and a reasonable one with the first 50 sequences
+birth death model with 50 sequences: should take 2-3 days
+
+The more parameters to infer, the more time
+proposed distribution has to be accepted to carry on
+But if it is often rejected, you explore way more states than what actually appears on your log file
+If the model is more complex, it is more likely we end up at places where the likelihood is very low
+
+If we have 100 parameters and update all of them as the same time, after a million steps we have only updated all of them 10'000 times.
+Compare our posterior probabilities
