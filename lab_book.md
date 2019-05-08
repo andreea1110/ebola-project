@@ -180,8 +180,27 @@ Presentations on the 29th from 11 to 13:15
 might be that other people from the group come out of interest, but those marking us are Tanja, Tim and Rachel
 
 Tanja:
-Origin of the epidemics with the first 200 sequences from 10 different locations
+Origin of the epidemics
 
-*Discrete phylogeography (Jasmine)*
+**Discrete phylogeography (Jasmine)**
 perhaps run it longer (doesn't seem to be stuck, but try to run it 4 times longer)
 origin inferred is close to the one in the paper, but not exactly the same one.
+Site model: use the paper's
+
+discrete phylogeography: one coalescent for the whole tree --> only one pop size estimate
+epidemics transmission is modelled as a nucleotide substitution (flipping a coin) --> bias
+
+**MASCOT (Andreea)**
+10 pop size estimates
+with 200 sequences (10 different locations): very slow
+with 50 sequences (4 different locations): still very slow, bad mixing
+40'000 iterations in 24 hours
+error message, too many iterations
+
+BEAST has trouble inferring the clock rate
+if we had time, we would run the analysis with the last 1400 sequences, then take posterior information for the 200
+EBOLA doesn't mutate so much --> take the mean and variance of the clock rate's posterior of the paper, and set a log normal posterior with these mean and variance
+will help the mixing
+if the clock rate is very constrained, so is the tree height.
+
+Use the same priors for all our origin analyses (especially site model and clock rate).
