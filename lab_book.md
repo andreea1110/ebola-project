@@ -183,6 +183,7 @@ Tanja:
 Origin of the epidemics
 
 **Discrete phylogeography (Jasmine)**
+only plug in a formula
 perhaps run it longer (doesn't seem to be stuck, but try to run it 4 times longer)
 origin inferred is close to the one in the paper, but not exactly the same one.
 Site model: use the paper's
@@ -192,6 +193,7 @@ epidemics transmission is modelled as a nucleotide substitution (flipping a coin
 
 **MASCOT (Andreea)**
 models a structured population
+evaluates differential equations
 10 pop size estimates
 with 200 sequences (10 different locations): very slow
 with 50 sequences (4 different locations): still very slow, bad mixing
@@ -205,15 +207,21 @@ will help the mixing
 if the clock rate is very constrained, so is the tree height.
 
 Use the same priors for all our origin analyses (especially site model and clock rate).
+For migration rate, use the default parameter (except if they are very informative about something wrong)
 
 Try to use only the first 50 sequences with the 4 locations
 SCOTTI and and birth death model should run approximately for the same amount of time, and a reasonable one with the first 50 sequences
-birth death model with 50 sequences: should take 2-3 days
 
-The more parameters to infer, the more time
+**Birth-Death Model**
+with 50 sequences: should take 2-3 days
+even more differential equations to evaluate than MASCOT --> even slowler
+
+The more parameters to infer, the more time it takes.
 proposed distribution has to be accepted to carry on
 But if it is often rejected, you explore way more states than what actually appears on your log file
 If the model is more complex, it is more likely we end up at places where the likelihood is very low
 
 If we have 100 parameters and update all of them as the same time, after a million steps we have only updated all of them 10'000 times.
 Compare our posterior probabilities
+
+Launch the 4 analyses with 50 sequences on the longest queue of the cluster
