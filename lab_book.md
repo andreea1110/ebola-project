@@ -183,6 +183,7 @@ Tanja:
 ## Origin of the epidemics
 
 **Discrete phylogeography (Jasmine)**
+
 only plugs data in formulaes --> relatively short
 
 perhaps run it longer (doesn't seem to be stuck, but try to run it 4 times longer to get ESS values > 200)
@@ -192,44 +193,56 @@ origin inferred is close to the one in the paper, but not exactly the same one.
 Site model: use the paper's
 
 discrete phylogeography: one coalescent for the whole tree --> only one pop size estimate
+
 epidemics transmission is modelled as a nucleotide substitution (flipping a coin): leads to bias
 
 **MASCOT (Andreea)**
-models a structured population
+
+models a structured population with 10 pop size estimates
+
 evaluates differential equations
-10 pop size estimates
+
 with 200 sequences (10 different locations): very slow
+
 with 50 sequences (4 different locations): still very slow, bad mixing
+
 40'000 iterations in 24 hours
+
 error message, too many iterations
 
 BEAST has trouble inferring the clock rate
-if we had time, we would run the analysis with the last 1400 sequences, then take posterior information for the 200
-EBOLA doesn't mutate so much --> take the mean and variance of the clock rate's posterior of the paper, and set a narrow log normal posterior with these mean and variance
-will help the mixing
-if the clock rate is very constrained, so is the tree height.
+
+if we had time, we would run the analysis with the last 1400 sequences, then take posterior information for the 200 first
+
+EBOLA doesn't mutate so much --> take the mean and variance of the clock rate's posterior of the paper, and set a narrow log normal posterior with these mean and variance. It will help the mixing.  If the clock rate is very constrained, so is the tree height.
 
 Use the same priors for all our origin analyses (especially site model and clock rate).
+
 For migration rate, use the default parameter (except if they are very informative about something wrong)
 
 Try to use only the first 50 sequences with the 4 locations
+
 SCOTTI and and birth death model should run approximately for the same amount of time, and a reasonable one with the first 50 sequences
 
 **Birth-Death Model**
+
 with 50 sequences: should take 2-3 days
-even more differential equations to evaluate than MASCOT --> even slowler
+
+even more differential equations to evaluate than MASCOT --> even slower
 
 The more parameters to infer, the more time it takes.
-proposed distribution has to be accepted to carry on
-But if it is often rejected, you explore way more states than what actually appears on your log file
-If the model is more complex, it is more likely we end up at places where the likelihood is very low
 
+proposed distribution has to be accepted to carry on. But if it is often rejected, you explore way more states than what actually appears on your log file. If the model is more complex, it is more likely we end up at places where the likelihood is very low.
 If we have 100 parameters and update all of them as the same time, after a million steps we have only updated all of them 10'000 times.
+
 Compare our posterior probabilities
 
 ## Inferring the local dynamics
+
 We infer reproductive numbers when we have a lot of branching (--> lots of transmissions if there is a single location)
+
 higher Re if we have a lot of transmissions
+
 but with our non-monophyletic clades, lots of branchings means there was a lot of migration to our area --> higher Re means a lot of migration
 
 More likely a branching corresponds to a migration even than a transmission
@@ -238,15 +251,16 @@ More likely a branching corresponds to a migration even than a transmission
 
 Focus on the structure analysis, but present also the problem of knowing exactly the structure of the data
 
-For the common parts:
-the presentation skills are graded individually, the content in common
+For the common parts: the presentation skills are graded individually, the content in common
+
 background: already explain why 50 sequences
 
-Each of us presents the analysis with her model.
-Andreea would be responsible for the MASCOT part and if questions were to be asked on this model, it would likely be asked to her.
+Each of us presents the analysis with her model: for example, Andreea would be responsible for the MASCOT part and if questions were to be asked on this model, it would likely be asked to her.
 
 ## To do:
+
 change clock rate prior according to paper for all the 4 analyses
 
 Launch the 4 analyses with 50 sequences on the longest queue of the cluster
+
 If we have 4 root locations, show a cake diagram of posteriors for each model (read the log file into R and then plot a diagram)
