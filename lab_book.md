@@ -180,7 +180,7 @@ Presentations on the 29th from 11 to 13:15
 might be that other people from the group come out of interest, but those marking us are Tanja, Tim and Rachel
 
 Tanja:
-##Origin of the epidemics
+## Origin of the epidemics
 
 **Discrete phylogeography (Jasmine)**
 only plug in a formula
@@ -225,13 +225,22 @@ If we have 100 parameters and update all of them as the same time, after a milli
 Compare our posterior probabilities
 
 Launch the 4 analyses with 50 sequences on the longest queue of the cluster
-If we have 4 root locations, show a cake diagram of posteriors for each model
+If we have 4 root locations, show a cake diagram of posteriors for each model (read the log file into R and then plot a diagram)
 
-##Inferring the local dynamics
+## Inferring the local dynamics
 We infer reproductive numbers when we have a lot of branching (--> lots of transmissions if there is a single location)
 higher Re if we have a lot of transmissions
 but with our non-monophyletic clades, lots of branchings means there was a lot of migration to our area --> higher Re means a lot of migration
 
 More likely a branching corresponds to a migration even than a transmission
 
-Focus on the structure analysis
+## Advice for the presentation
+
+Focus on the structure analysis, but present also the problem of knowing exactly the structure of the data
+
+For the common parts:
+the presentation skills are graded individually, the content in common
+background: already explain why 50 sequences
+
+Each of us presents the analysis with her model.
+Andreea would be responsible for the MASCOT part and if questions were to be asked on this model, it would likely be asked to her.
