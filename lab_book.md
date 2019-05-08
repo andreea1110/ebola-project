@@ -169,3 +169,19 @@ To infer regional dynamics, the tree of the article is online, on github if we d
 Take monophyletic clades
 
 we can also talk about limitations at the end of our talk
+
+Week 3 (06.05.2019 - 12.05.2019)
+================================
+
+For next week, already start to think about how we want to present our results
+Ideally come with some slides ready
+
+Presentations on the 29th from 11 to 13:15
+might be that other people from the group come out of interest, but those marking us are Tanja, Tim and Rachel
+
+Tanja:
+Origin of the epidemics with the first 200 sequences from 10 different locations
+
+*Discrete phylogeography (Jasmine)*
+perhaps run it longer (doesn't seem to be stuck, but try to run it 4 times longer)
+origin inferred is close to the one in the paper, but not exactly the same one.
