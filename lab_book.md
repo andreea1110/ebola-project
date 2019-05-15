@@ -264,3 +264,14 @@ change clock rate prior according to paper for all the 4 analyses
 Launch the 4 analyses with 50 sequences on the longest queue of the cluster
 
 If we have 4 root locations, show a cake diagram of posteriors for each model (read the log file into R and then plot a diagram)
+
+Week 4 (13.05.2019 - 19.05.2019)
+================================
+
+MASCOT and discrete phylogeography yield different results
+
+Tim: You do expect different results from these methods.
+
+In discrete phylogeography, the sample location distribution is treated as data. So if you have lots of samples from the same location, the model will assume the epidemics originated from there. On the other hand, MASCOT isn't biased by sampling proportion. In this model, it tends to infer the location from the tree rather than the other way around. So the tree likelihood gives the shape of the origin tree.
+
+
