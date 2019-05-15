@@ -268,10 +268,27 @@ If we have 4 root locations, show a cake diagram of posteriors for each model (r
 Week 4 (13.05.2019 - 19.05.2019)
 ================================
 
-MASCOT and discrete phylogeography yield different results
+## Discussion with Tim
 
-Tim: You do expect different results from these methods.
+**MASCOT and discrete phylogeography yield different results**
+
+You do expect different results from these methods.
 
 In discrete phylogeography, the sample location distribution is treated as data. So if you have lots of samples from the same location, the model will assume the epidemics originated from there. On the other hand, MASCOT isn't biased by sampling proportion. In this model, it tends to infer the location from the tree rather than the other way around. So the tree likelihood gives the shape of the origin tree.
+
+hig ESS values: correspond to the MCMC mixing well, so the mathematical convergence is satisfying. But doesn't imply the results are correct.
+
+Birth death model: somewhere in between these two models
+
+**TreeAnnotator**
+
+debugging with Tim
+
+In the folder where there is the trees java -Xmx4G -cp "C:\Program Files\BEAST_with_jre.v2.5.2.Windows\BEAST\lib\beast.jar" beast.app.treeannotator.TreeAnnotator
+
+## Advice for the presentation
+
+Put the whole presentation on a USB stick just in case.
+
 
 
