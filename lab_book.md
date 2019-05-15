@@ -272,3 +272,9 @@ but they also use the number of samples per location as an informative prior
 - clock rate posterior is ucld.mean in paper results (in tracer)
 - compute the start of the epidemics (date) by subtracting the treeHeight from
 tracer from the date of the most recent sample
+
+- MASCOT and discrete phylogeography yield different results
+
+- Tim: You do expect different results from these methods.
+
+- In discrete phylogeography, the sample location distribution is treated as data. So if you have lots of samples from the same location, the model will assume the epidemics originated from there. On the other hand, MASCOT isn't biased by sampling proportion. In this model, it tends to infer the location from the tree rather than the other way around. So the tree likelihood gives the shape of the origin tree.
