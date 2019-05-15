@@ -264,3 +264,11 @@ change clock rate prior according to paper for all the 4 analyses
 Launch the 4 analyses with 50 sequences on the longest queue of the cluster
 
 If we have 4 root locations, show a cake diagram of posteriors for each model (read the log file into R and then plot a diagram)
+
+Week 7 (15.05.2019 - 22.05.2019)
+================================
+- Scotti and Discrete Phylogeography also use a structured coalescent model as Mascot,
+but they also use the number of samples per location as an informative prior
+- clock rate posterior is ucld.mean in paper results (in tracer)
+- compute the start of the epidemics (date) by subtracting the treeHeight from
+tracer from the date of the most recent sample
