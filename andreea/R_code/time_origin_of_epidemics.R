@@ -1,5 +1,5 @@
 # Computes the time origin of epidemics using the results from tracer
-# treeHeight posterior
+# treeHeight posterior (assuming values are percentage of a year)
 # for the Structured Birth-Death model (first 50 sequences)
 
 ### Useful functions ###
