@@ -294,3 +294,14 @@ In the folder where there is the trees java -Xmx4G -cp "C:\Program Files\BEAST_w
 ## Advice for the presentation
 
 Put the whole presentation on a USB stick just in case.
+
+## Presentation plan
+1. Background: Jeanne
+2. Aim & strategy of study: Jasmine
+3. Methods 1: Andreea
+4. Methods 2: Jeanne
+5. Methods 3: Jasime
+6. Joint discussion and methods: Andreea
+-> pie charts for the locations
+-> box plots for the dates
+-> talk about similarities in the phylogenetic tree and differences the separate clades
