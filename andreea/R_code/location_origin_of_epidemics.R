@@ -45,7 +45,7 @@ lbls <- c("Kissidougou", "Gueckedou", "Macenta", "Kailahun")
 cols <- c("red", "green", "light blue", "purple")
 
 df <- data.frame(
-  group = c("Kissidougou 37%", "Gueckedou 54%", "Macenta 9%", "Kailahun 0%"),
+  group = c("Kissidougou 21%", "Gueckedou 59%", "Macenta 20%", "Kailahun 0%"),
   value = c(kissidougou, gueckedou, macenta, kailahun)
 )
 # Barplot
