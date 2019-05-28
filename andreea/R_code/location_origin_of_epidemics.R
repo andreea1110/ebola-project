@@ -35,9 +35,9 @@ pie <- bp + coord_polar("y", start=0) + scale_fill_manual(values=cols)
 pie
 
 # Discrete Phylogeography
-kissidougou =  0.37
-gueckedou =  0.54
-macenta =  0.09
+kissidougou =  0.21
+gueckedou =  0.59
+macenta =  0.2
 kailahun = 0
 
 slices <- c(kissidougou, gueckedou, macenta, kailahun) 
